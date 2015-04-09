@@ -1,19 +1,22 @@
+# == Class: roundcube::params
+#
+# Default parameters for roundcube
+#
 class roundcube::params {
   #database params
   $confdir                    = '/etc/roundcube'
   $database_host              = $::fqdn
-  $database_port              = '5432'
-  $database_name              = 'roundcubedb'
-  $database_username          = 'roundcubedb'
-  $database_password          = 'roundcubedb'
+  $database_port              = undef
+  $database_name              = 'roundcube'
+  $database_username          = 'roundcube'
+  $database_password          = 'roundcube'
   $database_ssl               = false
   $postgres_listen_addresses  = $::fqdn
-  $roundcube_backend          = 'pgsql'
+  $database_backend           = 'mysql'
   $roundcube_webserver        = 'apache'
   $ip_mask_allow_all_users    = '0.0.0.0/0'
 
   #webserver params
-  $apt_mirror                 = 'http://ftp.debian.org/debian'
   $main_inc_php_erb           = 'roundcube/main.inc.php.erb'
   $default_vhost_on           = true
   $default_mods               = false
@@ -24,6 +27,7 @@ class roundcube::params {
   $serveraliases              = []
   $documentroot               = '/var/lib/roundcube'
   $purge_configs              = true
+  # lint:ignore:strict_indent
   $scriptaliases              = [ { alias          => '/program/js/tiny_mce/',
                                     path           => '/usr/share/tinymce/www/' } ]
   $apache_port                = '80'
@@ -60,4 +64,5 @@ class roundcube::params {
                                     order          => 'allow,deny',
                                     allow          => 'from all' } ]
 
+  # lint:endignore:strict_indent
 }
