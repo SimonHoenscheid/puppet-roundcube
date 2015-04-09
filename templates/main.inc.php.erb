@@ -219,7 +219,7 @@ $rcmail_config['message_cache_lifetime'] = '10d';
 // enforce connections over https
 // with this option enabled, all non-secure connections will be redirected.
 // set the port for the ssl connection as value of this option if it differs from the default 443
-$rcmail_config['force_https'] = '<%= @force_https ||= "false" %>';
+$rcmail_config['force_https'] = <%= @force_https ||= "false" %>;
 
 // tell PHP that it should work as under secure connection
 // even if it doesn't recognize it as secure ($_SERVER['HTTPS'] is not set)
@@ -368,7 +368,7 @@ $rcmail_config['mdn_use_from'] = false;
 // 2 - one identity with possibility to edit all params
 // 3 - one identity with possibility to edit all params but not email address
 // 4 - one identity with possibility to edit only signature
-$rcmail_config['identities_level'] = 0;
+$rcmail_config['identities_level'] = <%= @identities_level ||= 0 %>;
 
 // Mimetypes supported by the browser.
 // attachments of these types will open in a preview window
@@ -897,4 +897,9 @@ $rcmail_config['autocomplete_single'] = false;
 // Georgia, Helvetica, Impact, Tahoma, Terminal, Times New Roman, Trebuchet MS, Verdana
 $rcmail_config['default_font'] = 'Verdana';
 
+<%- if @custom_config -%>
+// Custom set config
+<%= @custom_config ||="" -%>
+
+<%- end if -%>
 // end of config file
