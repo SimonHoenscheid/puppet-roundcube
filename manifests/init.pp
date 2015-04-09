@@ -27,6 +27,7 @@ class roundcube (
   $skin                      = 'larry',
   $timezone                  = 'auto',
   $identities_level          = 0,
+  $custom_config             = undef,
 ) inherits roundcube::params {
 
   validate_absolute_path($confdir)
