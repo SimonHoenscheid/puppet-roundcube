@@ -454,26 +454,26 @@ $rcmail_config['date_long'] = 'Y-m-d H:i';
 // store draft message is this mailbox
 // leave blank if draft messages should not be stored
 // NOTE: Use folder names with namespace prefix (INBOX. on Courier-IMAP)
-$rcmail_config['drafts_mbox'] = 'Drafts';
+$rcmail_config['drafts_mbox'] = '<%= @mbox_drafts %>';
 
 // store spam messages in this mailbox
 // NOTE: Use folder names with namespace prefix (INBOX. on Courier-IMAP)
-$rcmail_config['junk_mbox'] = 'Junk';
+$rcmail_config['junk_mbox'] = '<%= @mbox_junk %>';
 
 // store sent message is this mailbox
 // leave blank if sent messages should not be stored
 // NOTE: Use folder names with namespace prefix (INBOX. on Courier-IMAP)
-$rcmail_config['sent_mbox'] = 'Sent';
+$rcmail_config['sent_mbox'] = '<%= @mbox_sent %>';
 
 // move messages to this folder when deleting them
 // leave blank if they should be deleted directly
 // NOTE: Use folder names with namespace prefix (INBOX. on Courier-IMAP)
-$rcmail_config['trash_mbox'] = 'Trash';
+$rcmail_config['trash_mbox'] = '<%= @mbox_trash %>';
 
 // display these folders separately in the mailbox list.
 // these folders will also be displayed with localized names
 // NOTE: Use folder names with namespace prefix (INBOX. on Courier-IMAP)
-$rcmail_config['default_folders'] = array('INBOX', 'Drafts', 'Sent', 'Junk', 'Trash');
+$rcmail_config['default_folders'] = array('INBOX', '<%= @mbox_drafts %>', '<%= @mbox_junk %>', '<%= @mbox_sent %>', '<%= @mbox_trash %>');
 
 // automatically create the above listed default folders on first login
 $rcmail_config['create_default_folders'] = false;

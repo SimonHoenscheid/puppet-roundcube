@@ -11,6 +11,10 @@ class roundcube (
   $database_username         = $roundcube::params::database_username,
   $database_password         = $roundcube::params::database_password,
   $database_ssl              = $roundcube::params::database_ssl,
+  $mbox_drafts               = 'Drafts',
+  $mbox_sent                 = 'Sent Items',
+  $mbox_junk                 = 'Junk E-Mail',
+  $mbox_trash                = 'Deleted Items',
   $manage_apache_config      = true,
   $main_inc_php_erb          = $roundcube::params::main_inc_php_erb,
   $log_logins                = false,
@@ -32,6 +36,8 @@ class roundcube (
 
   validate_absolute_path($confdir)
   validate_array($plugins)
+
+  validate_string($mbox_drafts, $mbox_junk, $mbox_sent, $mbox_trash)
 
   contain ::roundcube::dbconfig
   contain ::roundcube::install
