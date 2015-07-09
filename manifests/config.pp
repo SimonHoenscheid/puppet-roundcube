@@ -2,7 +2,7 @@
 #
 # Configure roundcube
 #
-class roundcube::config {
+class roundcube::config inherits roundcube {
 
   file { 'roundcube main.inc.php':
     ensure  => file,
