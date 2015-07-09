@@ -5,7 +5,7 @@
 class roundcube::apache {
 
   if ! defined(Class['::apache']) {
-    warn('Declaring Apache myself, you should do that - with prefork enabled!')
+    warning('Declaring Apache myself, you should do that - with prefork enabled!')
     class { '::apache':
       mpm_module => 'prefork',
     }
