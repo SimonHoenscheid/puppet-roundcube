@@ -21,8 +21,8 @@ class roundcube::apache {
   }
   ::apache::custom_config { 'roundcube-alias':
     content => "# Managed by Puppet
-      Alias /roundcube/program/js/tiny_mce/ /usr/share/tinymce/www/
-      Alias /roundcube /var/lib/roundcube
+      Alias ${::roundcube::web_uri}/program/js/tiny_mce/ /usr/share/tinymce/www/
+      Alias ${::roundcube::web_uri} /var/lib/roundcube
     ",
   }
 

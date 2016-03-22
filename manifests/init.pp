@@ -32,6 +32,7 @@ class roundcube (
   $timezone                  = 'auto',
   $identities_level          = 0,
   $custom_config             = undef,
+  $web_uri                   = '/roundcube',
 ) inherits roundcube::params {
 
   validate_absolute_path($confdir)
@@ -44,6 +45,7 @@ class roundcube (
   contain ::roundcube::config
 
   if $manage_apache_config {
+    validate_absolute_path($web_uri)
     contain ::roundcube::apache
   }
 
