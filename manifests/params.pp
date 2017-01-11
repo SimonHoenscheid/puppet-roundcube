@@ -17,7 +17,7 @@ class roundcube::params {
   $ip_mask_allow_all_users    = '0.0.0.0/0'
 
   #webserver params
-  $main_inc_php_erb           = 'roundcube/main.inc.php.erb'
+  $config_inc_php_erb         = 'roundcube/config.inc.php.erb'
   $default_vhost_on           = true
   $default_mods               = false
   $default_confd_files        = false
