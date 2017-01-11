@@ -4,7 +4,7 @@
 #
 class roundcube::config inherits roundcube {
   #this is now config.inc.php, the split is gone
-  file { 'roundcube main.inc.php':
+  file { 'roundcube config.inc.php':
     ensure  => file,
     path    => "${::roundcube::confdir}/config.inc.php",
     owner   => 'root',
